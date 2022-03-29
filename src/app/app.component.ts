@@ -8,6 +8,5 @@ import { MatDrawerMode, MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  mode: MatDrawerMode = 'over';
   constructor(public layoutService: LayoutService) {}
 }

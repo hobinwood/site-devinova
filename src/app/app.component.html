@@ -1,54 +1,29 @@
-<!-- <app-header></app-header>
-<router-outlet></router-outlet> -->
-{{layoutService.isMobile}}
-{{layoutService.isOpenedMenu}}
-<mat-drawer-container class="example-container" autosize>
-    <mat-drawer [mode]="mode" #drawer class="example-sidenav" mode="side">
-        <p>Auto-resizing sidenav</p>
-        <p *ngIf="layoutService.isOpenedMenu">Lorem, ipsum dolor sit amet consectetur.</p>
-        <button (click)="layoutService.toggleMenu()" mat-raised-button>
-            Toggle extra text
-        </button>
-    </mat-drawer>
+<mat-sidenav-container autosize >
+    <mat-sidenav #sidenav mode="over">
+        <a class="link" href="#">Quem somos</a>
+        <a class="link" href="#">Portfólio</a>
+        <a class="link" href="#">Por que a devinova</a>
+        <a class="link" href="#">Contato</a>
+    </mat-sidenav>
 
-    <div class="header">
-        <img src="https://cdn.pixabay.com/photo/2022/03/02/13/42/peace-7043225_960_720.jpg" alt="" class="logo">
+
+    <mat-sidenav-content>
+      <div class="header">
+        <img class="logo" src="assets/images/logo.png">
 
         <div class="links" *ngIf="!layoutService.isMobile">
-            <a href="#">Quem somos</a>
-            <a href="#">Portfólio</a>
-            <a href="#">Por que a devinova</a>
-            <a href="#">Contato</a>
+            <a class="link" href="#">Quem somos</a>
+            <a class="link" href="#">Portfólio</a>
+            <a class="link" href="#">Por que a devinova</a>
+            <a class="link" href="#">Contato</a>
         </div>
 
-        <mat-icon *ngIf="layoutService.isMobile" (click)="drawer.toggle()">menu</mat-icon>
-    </div>
+        <mat-icon class="icon-menu" *ngIf="layoutService.isMobile" (click)="sidenav.toggle()">
+          {{sidenav.opened ? 'close' : 'menu'}}
+        </mat-icon>
+      </div>
 
-</mat-drawer-container>
-<!-- <mat-toolbar>
-    <img src="https://cdn.pixabay.com/photo/2022/03/02/13/42/peace-7043225_960_720.jpg" alt="" class="logo">
-
-    <div class="links" *ngIf="!layoutService.isMobile">
-        <a href="#">Quem somos</a>
-        <a href="#">Portfólio</a>
-        <a href="#">Por que a devinova</a>
-        <a href="#">Contato</a>
-    </div>
-
-    <mat-icon *ngIf="layoutService.isMobile" (click)="layoutService.toggleMenu()">menu</mat-icon>
-
-</mat-toolbar>
-
-<mat-sidenav-container>
-    <mat-sidenav #sidenav *ngIf="layoutService.isMobile">
-        <div class="mobile-menu" *ngIf="layoutService.isOpenedMenu">
-            <a href="#">Quem somos</a>
-            <a href="#">Portfólio</a>
-            <a href="#">Por que a devinova</a>
-            <a href="#">Contato</a>
-        </div>
-    </mat-sidenav>
-    <mat-sidenav-content [class.disable-scroll]="">
-        <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
-</mat-sidenav-container> -->
+
+</mat-sidenav-container>
